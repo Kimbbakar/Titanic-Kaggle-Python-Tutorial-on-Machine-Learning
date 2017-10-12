@@ -30,5 +30,10 @@ target = np.array(train["Survived" ].values )
 features_one = np.array((train[["Pclass", "Sex", "Age", "Fare"]].values))
 
 
+# Fit your first decision tree: my_tree_one
+my_tree_one = tree.DecisionTreeClassifier()
+my_tree_one = my_tree_one.fit(features_one,target)
+
+
 
 
