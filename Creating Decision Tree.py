@@ -36,4 +36,7 @@ my_tree_one = my_tree_one.fit(features_one,target)
 
 
 
+# Look at the importance and score of the included features
+print(my_tree_one.feature_importances_)
+print(my_tree_one.score(features_one, target))
 
