@@ -66,3 +66,6 @@ print my_prediction
 PassengerId =np.array(test["PassengerId"]).astype(int)
 my_solution = pd.DataFrame(my_prediction, PassengerId, columns = ["Survived"])
 print(my_solution).head()
+
+# Write your solution to a csv file with the name my_solution.csv
+my_solution.to_csv("my_solution_one.csv", index_label = ["PassengerId"])
