@@ -28,7 +28,6 @@ train.loc[ train["Embarked"]=='Q', "Embarked" ] = 2
 
 train.Age =  train.Age.fillna( np.mean(train["Age" ]) ) 
 
-print(train.head())
 
 # Create the target and features numpy arrays: target, features_one
 target = np.array(train["Survived" ].values )
@@ -42,8 +41,16 @@ my_tree_one = my_tree_one.fit(features_one,target)
 
 print(my_tree_one.feature_importances_)
 print(my_tree_one.score(features_one, target))
- 
 
+# Convert the male and female groups to integer form
+test.loc[test["Sex"] == "male",'Sex' ] = 0
+test.loc[test["Sex"] == "female",'Sex' ] = 1
+
+print(test.head())
+
+
+test.Age =  test.Age.fillna(test.Age.mean() )
 test.set_value(152,'Fare' ,test.Fare.median() )  
+
 #alternate way to set value. test.Fare[152] =test.Fare.median()
 
