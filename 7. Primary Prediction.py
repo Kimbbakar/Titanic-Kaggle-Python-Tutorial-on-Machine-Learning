@@ -61,3 +61,8 @@ test_features = test[["Pclass", "Sex", "Age" , "Fare" ]].values
 my_prediction = my_tree_one.predict(test_features)
 
 print my_prediction
+
+# Create a data frame with two columns: PassengerId & Survived. Survived contains your predictions
+PassengerId =np.array(test["PassengerId"]).astype(int)
+my_solution = pd.DataFrame(my_prediction, PassengerId, columns = ["Survived"])
+print(my_solution).head()
