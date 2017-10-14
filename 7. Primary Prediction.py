@@ -54,3 +54,10 @@ test.set_value(152,'Fare' ,test.Fare.median() )
 
 #alternate way to set value. test.Fare[152] =test.Fare.median()
 
+# Extract the features from the test set: Pclass, Sex, Age, and Fare.
+test_features = test[["Pclass", "Sex", "Age" , "Fare" ]].values
+
+# Make your prediction using the test set
+my_prediction = my_tree_one.predict(test_features)
+
+print my_prediction
