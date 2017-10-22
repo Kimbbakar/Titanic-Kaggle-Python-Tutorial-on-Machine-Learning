@@ -32,12 +32,16 @@ train.Age =  train.Age.fillna( np.mean(train["Age" ]) )
 # Create the target and features numpy arrays: target, features_one
 target = np.array(train["Survived" ].values )
 features_two = np.array((train[["Pclass", "Sex", "Age", "Fare","SibSp","Parch" ]].values))
-
+max_depth = 10
+min_samples_split = 5
  
 
 # # Fit your first decision tree: my_tree_one
-my_tree_two = tree.DecisionTreeClassifier()
+my_tree_two = tree.DecisionTreeClassifier(max_depth=max_depth,min_samples_split=min_samples_split,random_state=1 )
 my_tree_two = my_tree_two.fit(features_two,target)
+
+print(my_tree_two.feature_importances_)
+print(my_tree_two.score(features_two, target))
 
 
 # Convert the male and female groups to integer form
